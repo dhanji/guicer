@@ -15,6 +15,7 @@
 
   <modules>
     <module>stat</module>
+    <module>options</module>
   </modules>
 
   <build>
