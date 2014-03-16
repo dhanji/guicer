@@ -1,15 +1,15 @@
 package com.wideplay.guicer.stat;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Strings.isNullOrEmpty;
-import static com.wideplay.guicer.stat.StatsServlet.DEFAULT_FORMAT;
-
 import com.google.inject.matcher.Matchers;
 import com.google.inject.multibindings.MapBinder;
 import com.google.inject.servlet.ServletModule;
 import com.wideplay.guicer.stat.StatsPublishers.HtmlStatsPublisher;
 import com.wideplay.guicer.stat.StatsPublishers.JsonStatsPublisher;
 import com.wideplay.guicer.stat.StatsPublishers.TextStatsPublisher;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Strings.isNullOrEmpty;
+import static com.wideplay.guicer.stat.StatsServlet.DEFAULT_FORMAT;
 
 /**
  * This module enables publishing values annotated with {@link Stat} to a given
@@ -38,7 +38,7 @@ import com.wideplay.guicer.stat.StatsPublishers.TextStatsPublisher;
  * </pre></code>
  * <p>
  * This class registers a stat called {@code search-hits}.  To configure the
- * server to publish this stat, install a {@link StatModule}, such as:
+ * server to publish this stat, install a {@link StatServletModule}, such as:
  * <pre><code>
  * public class YourServerModule extends AbstractModule {
  *  {@literal @}Override protected void configure() {
@@ -159,10 +159,10 @@ import com.wideplay.guicer.stat.StatsPublishers.TextStatsPublisher;
  * @author dhanji@gmail.com (Dhanji R. Prasanna)
  * @author ffaber@gmail.com (Fred Faber)
  */
-public class StatModule extends ServletModule {
+public class StatServletModule extends ServletModule {
   private final String uriPath;
 
-  public StatModule(String uriPath) {
+  public StatServletModule(String uriPath) {
     checkArgument(!isNullOrEmpty(uriPath),
         "URI path must be a valid non-empty servlet path mapping (example: /stats)");
     this.uriPath = uriPath;

@@ -18,7 +18,7 @@
 package com.wideplay.guicer.stat;
 
 /**
- * A {@link StatReader} is ble to read the value of a stat, be it a direct
+ * A {@link StatReader} is able to read the value of a stat, be it a direct
  * reference to an object, a field or method on a class, or by some other
  * means.
  * <p>

@@ -28,7 +28,7 @@ public class StatsIntegrationTest {
     injector = Guice.createInjector(new AbstractModule() {
       @Override
       protected void configure() {
-        install(new StatModule("/stat"));
+        install(new StatServletModule("/stat"));
 
         bind(DummyService.class);
         bind(ChildDummyService.class);
